@@ -1,23 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import { createBrowserRouter, RouterProvider } from 'react-router';
+import Navbar from './components/Navbar';
+import Home from './components/Home';
+import Paste from './components/Paste';
+import ViewPaste from './components/ViewPaste';
 
+const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element:
+        <div>
+          <Navbar />
+          <Home />
+        </div>
+    },
+    {
+      path: "/pastes",
+      element:
+        <div>
+          <Navbar />
+          <Paste />
+        </div>
+    },
+    {
+      path: "/pastes/:id",
+      element:
+        <div>
+          <Navbar />
+          <ViewPaste />
+        </div>
+    }
+  ]
+)
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <RouterProvider router={router}/>
     </div>
   );
 }
