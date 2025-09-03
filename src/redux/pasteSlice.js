@@ -40,8 +40,9 @@ export const pasteSlice = createSlice({
                 state.pastes.splice(index,1)
                 localStorage.setItem("pastes", JSON.stringify(state.pastes))
             toast.success('Paste Deleted Successfully')
+            }
         }
-    },
+    }
 })
 
 export const { addToPastes, updateToPastes, resetAllPastes, removeFromPastes } = pasteSlice.actions
